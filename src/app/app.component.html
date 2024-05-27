@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Comparador de Preços de Produtos</h2>
+  <form>
+    <div class="form-group">
+      <label for="productName">Nome do Produto:</label>
+      <input type="text" class="form-control" id="productName" placeholder="Nome do Produto">
+    </div>
+    <div class="form-group">
+      <label for="productPrice">Preço do Produto:</label>
+      <input type="number" class="form-control" id="productPrice" placeholder="Preço do Produto">
+    </div>
+    <div class="form-group">
+      <label for="productValues">Valores:</label>
+      <div *ngFor="let value of values; let i = index" class="row mb-2">
+        <div class="col">
+          <input type="number" class="form-control" placeholder="Valor {{ i + 1 }}" [(ngModel)]="values[i]">
+        </div>
+        <div class="col-auto">
+          <button type="button" class="btn btn-danger" (click)="removeValue(i)">Remover</button>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="addValue()">Adicionar Valor</button>
+    </div>
+    <button type="submit" class="btn btn-primary">Adicionar Produto</button>
+  </form>
+</div>
